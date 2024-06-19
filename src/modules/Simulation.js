@@ -147,7 +147,7 @@ module.exports = class Simulation {
     }
 
     run() {
-        logTitle('Toy Robot \n');
+        logTitle('Kachis Toy Robot \n');
         this.createRobot();
         return this.filePath ? this.parseCommandsFromFile(this.filePath) : this.showMenuPrompt();
     }
