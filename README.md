@@ -11,7 +11,7 @@
 # About the Challenge
 
 
-This challenge is a toy robot challenge which requires the developer to create an application that simulates the movement of a toy robot on a square tabletop  of dimensions 5 x 5.
+This challenge is a toy robot challenge which requires me to create an application that simulates the movement of a toy robot on a square tabletop  of dimensions 5 x 5.
 
 ## Task Requirements
 
@@ -76,9 +76,9 @@ The coverage output directory has the below structure.
 
 To incoprorate a DevOps approach into the design, I set up a workflow on GitHub Actions which builds and deploys the code to an Azure Web App.
 
-Below is a snippet of the configured pipeline.
+Below is a snippet of a successful pipeline run.
 
-![alt text](image.png)
+![alt text](image-4.png)
 
 Before running the pipeline, ensure that the Secrets have been updated on GitHub as shown below.
 
