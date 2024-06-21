@@ -8,7 +8,7 @@ const Direction = {
     WEST: 4
 }
 module.exports = class Robot {
-    constructor (boundaries) {
+    constructor (boundaries = {x: 5, y: 5}) {
         this.x = 0;
         this.y = 0;
         this.boundaries = boundaries;
@@ -23,7 +23,7 @@ module.exports = class Robot {
      * @description Places the robot on the grid with an x,y and direction
      */
     place(x, y, direction) {
-        if ((x <= this.boundaries.x && x >= 0) && (this.y <= this.boundaries.y && y >= 0) && this.isValidDirection(direction)) {
+        if ((x < this.boundaries.x && x >= 0) && (y < this.boundaries.y && y >= 0) && this.isValidDirection(direction)) {
 			this.x = x;
 			this.y = y;
 			this.direction = Direction[direction];
@@ -63,9 +63,14 @@ module.exports = class Robot {
     /**
      * @description Turns the Robot 90deg to the right from it's current direction
      */
+    // right() {
+    //     return this.direction + 1 === Object.keys(Direction).length ? this.direction = Direction.NORTH : this.direction++;
+    // }
     right() {
-        return this.direction + 1 === Object.keys(Direction).length ? this.direction = Direction.NORTH : this.direction++;
-    }
+        // Increase the direction value by 1, and use modulo to wrap around if necessary
+        this.direction = (this.direction % 4) + 1;
+        return this.direction;
+    } 
 
     /**
      * @description Provides the Direction name in string form from the index

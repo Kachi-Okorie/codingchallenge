@@ -97,6 +97,22 @@ describe('Robot Class Testing', () => {
         expect(robot.isValidDirection('INVALID')).toBe(false);
     });
 
+    it('should not place the robot at an invalid location (5,5)', () => {
+        expect(() => robot.place(5, 5, 'NORTH'));
+        expect(robot.x).toBe(0);
+        expect(robot.y).toBe(0);
+        expect(robot.direction).toBe(Direction.NORTH);
+        expect(robot.placed).toBeFalsy();
+    });
+
+    it('should not place the robot at an invalid location (-1,-1)', () => {
+        expect(() => robot.place(-1, -1, 'NORTH'));
+        expect(robot.x).toBe(0);
+        expect(robot.y).toBe(0);
+        expect(robot.direction).toBe(Direction.NORTH);
+        expect(robot.placed).toBeFalsy();
+    });
+
     it('should return the correct direction string based on the direction index', () => {
         expect(robot.convertDirectionToString()).toBe('NORTH');
     });
