@@ -91,7 +91,13 @@ describe('Robot Class Testing', () => {
         expect(robot.x).toBe(0);
         expect(robot.y).toBe(0);
         expect(robot.direction).toBe(Direction.EAST);
-    })
+    });
+
+    it('should report correct direction after turning right from WEST', () => {
+        robot.place(0, 0, 'WEST');
+        robot.right(); // Turn right from WEST
+        expect(robot.direction).toBe(Direction.NORTH);
+    });
 
     it('should validate a correct direction', () => {
         expect(robot.isValidDirection('INVALID')).toBe(false);
